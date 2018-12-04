@@ -1,11 +1,5 @@
-const path = require('path')
 
 module.exports = {
-    chainWebpack: config => {
-        const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-        types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
-    },
-
     lintOnSave: false,
 
     pluginOptions: {
@@ -13,15 +7,15 @@ module.exports = {
         preProcessor: 'sass',
         patterns: []
       }
-    }
-}
+    },
 
-function addStyleResource(rule) {
-    rule.use('style-resource')
-        .loader('style-resources-loader')
-        .options({
-            patterns: [
-                path.resolve(__dirname, './src/styles/imports.styl'),
-            ],
-        })
+    css: {
+        loaderOptions: {
+            // 给 sass-loader 传递选项
+            sass: {
+                // @/ 是 src/ 的别名
+                // data: `@import "@/variables.scss";`
+            }
+        }
+    }
 }
