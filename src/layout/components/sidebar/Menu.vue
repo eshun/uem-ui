@@ -26,7 +26,7 @@
         </el-submenu>
         <el-menu-item index="2">
             <template>
-                <el-select v-model="value8" filterable placeholder="请选择">
+                <el-select class="sel-wrapper" v-model="value8" filterable placeholder="请选择">
                     <el-option
                         v-for="item in options"
                         :key="item.value"
@@ -73,6 +73,14 @@
         }
     }
 </script>
+
+<style rel="stylesheet/scss" lang="scss">
+    .el-menu--collapse>.el-menu-item .sel-wrapper span{
+        visibility: unset;
+        height: auto;
+        width: auto;
+    }
+</style>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
     .el-menu-wrapper {
