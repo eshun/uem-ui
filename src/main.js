@@ -5,6 +5,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
+import './styles/index.scss'
+
 import App from './App.vue'
 import router from './router/'
 import store from './store/'
@@ -13,7 +15,7 @@ Vue.use(Element)
 
 router.beforeEach((to, from, next) => {
     NProgress.start(); // start progress bar
-    next(()=>{
+    next(() => {
         NProgress.done();// finish progress bar
     });
 });
@@ -25,7 +27,7 @@ router.afterEach(() => {
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

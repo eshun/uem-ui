@@ -1,13 +1,22 @@
 <template>
-    
+    <el-container class="app-container">
+        <sidebar/>
+        <el-main class="main-container">
+        </el-main>
+    </el-container>
 </template>
 
 <script>
+    import { Sidebar } from './components'
+
     export default {
-        name: "index"
+        name: "layout",
+        components: { Sidebar },
     }
 </script>
 
-<style scoped>
-
+<style rel="stylesheet/scss" lang="scss" scoped>
+    .app-container {
+        height: 100%;
+    }
 </style>
