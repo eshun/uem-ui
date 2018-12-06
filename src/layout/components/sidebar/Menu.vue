@@ -93,6 +93,7 @@
     }
     .el-submenu__title i, .el-menu-item i {
         color: #fff !important;
+        font-size: 24px !important;
     }
     .el-menu-item.is-disabled {
         opacity: 1;
