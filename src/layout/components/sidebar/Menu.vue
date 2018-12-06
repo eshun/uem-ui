@@ -13,12 +13,12 @@
             </template>
             <el-menu-item index="0">
                 <i class="el-icon-document"></i>
-                <span slot="title">导航0</span>
+                <span slot="title">Servers Overview</span>
             </el-menu-item>
             <el-submenu index="1">
                 <template slot="title">
                     <i class="el-icon-document"></i>
-                    <span slot="title">导航1</span>
+                    <span slot="title">Settings</span>
                 </template>
                 <el-menu-item index="1-1">选项1</el-menu-item>
                 <el-menu-item index="1-2">选项2</el-menu-item>
@@ -35,14 +35,14 @@
             <template slot="title">
                 <span slot="title">App Centric</span>
             </template>
-            <el-menu-item index="2">
+            <el-menu-item index="2" disabled>
                 <template>
                     <app-selector />
                 </template>
             </el-menu-item>
             <el-menu-item index="3">
                 <i class="el-icon-document"></i>
-                <span slot="title">导航2</span>
+                <span slot="title">Dashboard</span>
             </el-menu-item>
             <el-menu-item index="4">
                 <i class="el-icon-setting"></i>
@@ -90,6 +90,13 @@
                 display: none;
             }
         }
+    }
+    .el-submenu__title i, .el-menu-item i {
+        color: #fff !important;
+    }
+    .el-menu-item.is-disabled {
+        opacity: 1;
+        cursor: unset;
     }
 </style>
 

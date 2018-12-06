@@ -1,6 +1,10 @@
 <template>
     <transition name="el-fade-in">
-        <el-select class="app-selector-wrapper" v-model="value8" filterable placeholder="Please select an app">
+        <el-select
+            filterable
+            class="app-selector-wrapper"
+            placeholder="Please select an app"
+            v-model="selector">
             <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -17,19 +21,23 @@
         data() {
             return {
                 options: [{
-                    value: '选项1',
-                    label: '黄金糕'
+                    value: 'demo-application',
+                    label: 'demo-application'
                 }],
-                value8: ''
+                selector: 'demo-application'
             }
         },
     }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/scss" lang="scss">
     // .select-hidden
     .app-selector-wrapper {
         width: 100%;
-        background-color: #202a37 !important;
+        .el-input__inner {
+            border: 0;
+            color: #fff;
+            background-color: #171e27 !important;
+        }
     }
 </style>
