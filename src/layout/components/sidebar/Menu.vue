@@ -1,84 +1,95 @@
 <template>
     <el-menu
         class="el-menu-wrapper"
-        :collapse="true"
+        :collapse="collapse"
 
         background-color="#202a37"
         text-color="#FFFFFF"
         active-text-color="#01CEA2"
     >
-        <el-submenu index="1">
+        <el-menu-item-group>
             <template slot="title">
-                <span slot="title">导航一</span>
+                <span slot="title">Bucket Centric</span>
             </template>
-            <el-menu-item-group>
-                <span slot="title">分组一</span>
+            <el-menu-item index="0">
+                <i class="el-icon-document"></i>
+                <span slot="title">导航0</span>
+            </el-menu-item>
+            <el-submenu index="1">
+                <template slot="title">
+                    <i class="el-icon-document"></i>
+                    <span slot="title">导航1</span>
+                </template>
                 <el-menu-item index="1-1">选项1</el-menu-item>
                 <el-menu-item index="1-2">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-                <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="1-4">
-                <span slot="title">选项4</span>
-                <el-menu-item index="1-4-1">选项1</el-menu-item>
+                <el-menu-item-group title="分组1">
+                    <el-menu-item index="1-3">选项3</el-menu-item>
+                </el-menu-item-group>
+                <el-submenu index="1-4">
+                    <span slot="title">选项4</span>
+                    <el-menu-item index="1-4-1">选项1</el-menu-item>
+                </el-submenu>
             </el-submenu>
-        </el-submenu>
-        <el-menu-item index="2">
-            <template>
-                <el-select class="sel-wrapper" v-model="value8" filterable placeholder="请选择">
-                    <el-option
-                        v-for="item in options"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value">
-                    </el-option>
-                </el-select>
+        </el-menu-item-group>
+        <el-menu-item-group>
+            <template slot="title">
+                <span slot="title">App Centric</span>
             </template>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-            <i class="el-icon-document"></i>
-            <span slot="title">导航三</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-            <i class="el-icon-setting"></i>
-            <span slot="title">导航四</span>
-        </el-menu-item>
+            <el-menu-item index="2">
+                <template>
+                    <app-selector />
+                </template>
+            </el-menu-item>
+            <el-menu-item index="3">
+                <i class="el-icon-document"></i>
+                <span slot="title">导航2</span>
+            </el-menu-item>
+            <el-menu-item index="4">
+                <i class="el-icon-setting"></i>
+                <span slot="title">导航3</span>
+            </el-menu-item>
+            <el-menu-item index="5">
+                <i class="el-icon-setting"></i>
+                <span slot="title">导航4</span>
+            </el-menu-item>
+        </el-menu-item-group>
     </el-menu>
 </template>
 
 <script>
+    import { mapGetters } from 'vuex'
+    import AppSelector from './Selector'
     export default {
         name: "app-menu",
-        data() {
-            return {
-                options: [{
-                    value: '选项1',
-                    label: '黄金糕'
-                }, {
-                    value: '选项2',
-                    label: '双皮奶'
-                }, {
-                    value: '选项3',
-                    label: '蚵仔煎'
-                }, {
-                    value: '选项4',
-                    label: '龙须面'
-                }, {
-                    value: '选项5',
-                    label: '北京烤鸭'
-                }],
-                value8: ''
-            }
+        components: { AppSelector },
+        computed: {
+            ...mapGetters([
+                'collapse'
+            ]),
         }
     }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-    .el-menu--collapse>.el-menu-item .sel-wrapper span{
-        visibility: unset;
-        height: auto;
-        width: auto;
+    .el-submenu [class^=el-icon-], .el-menu-item [class^=el-icon-] {
+        margin: 0 8px !important;
+    }
+    .el-menu-item-group__title {
+        display: inline-block;
+        overflow: hidden;
+        height: 24px;
+        word-wrap:break-word;
+        white-space:normal;
+    }
+    .el-menu--collapse {
+        .el-submenu__title {
+            span {
+                display: none;
+            }
+            .el-submenu__icon-arrow {
+                display: none;
+            }
+        }
     }
 </style>
 
@@ -86,9 +97,11 @@
     .el-menu-wrapper {
         width: 80px;
         border: 0;
+        text-align: left;
+        align-items: center;
         &:not(.el-menu--collapse) {
-            width: 200px;
-            height: 100vh;
+            width: 300px;
+            // height: 100vh;
         }
     }
 </style>

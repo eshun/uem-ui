@@ -2,8 +2,9 @@ import Vue from 'vue'
 import 'normalize.css/normalize.css'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
+import 'element-ui/lib/theme-chalk/base.css'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 import './styles/index.scss'
 

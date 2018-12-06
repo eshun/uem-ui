@@ -14,7 +14,14 @@
         svg {
             width: 130px;
             transition: transform .2s;
-            transform: translate(5px,30px) scale(.6);
+            transform: translate(130px, 30px) scale(1);
+        }
+    }
+    .aside--collapse {
+        .logo-wrapper {
+            svg {
+                transform: translate(5px,30px) scale(.6);
+            }
         }
     }
 </style>

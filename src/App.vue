@@ -12,7 +12,6 @@
 
 <style rel="stylesheet/scss" lang="scss" scoped>
     #app {
-        text-align: center;
         color: #ffffff;
         height: 100%;
     }
