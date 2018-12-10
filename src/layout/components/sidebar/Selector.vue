@@ -27,6 +27,9 @@
                 selector: 'demo-application'
             }
         },
+        methods: {
+
+        }
     }
 </script>
 
